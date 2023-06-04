@@ -18,8 +18,9 @@ After training the model, the repository provides functionality to perform multi
 2. Permutation Importance: By randomly permuting the values of individual modalities, this method assesses the change in the model's performance to measure the importance of each modality.
 3. Shapley Values: Shapley values assign importance scores to each modality by considering all possible combinations and permutations of modalities in the model.
 4. LIME (Local Interpretable Model-Agnostic Explanations): LIME provides local explanations for the model's predictions by fitting an interpretable model to the predictions of the multimodal model.
+5. AGG: This method returns an aggregate of results from all above methods.
 
-All these methods are implemented, and the repository provides an aggregate of their results as an additional method. The feature importance results are returned at both the modality level and the input level, allowing a detailed analysis of the model's decision-making process.
+The feature importance results are returned at both the modality level and the input level, allowing a detailed analysis of the model's decision-making process.
 
 ## Data Requirements
 
