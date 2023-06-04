@@ -1,4 +1,4 @@
-# Hybrid Fusion Multimodal Neural Network for Pathology Classification with Feature Importance and Interpretability
+# Quantifying the Relative Importance of Multimodal Inputs in a Hybrid Fusion Multimodal Neural Network for Pathology Classification
 
 This repository contains code for a hybrid fusion multimodal neural network trained for a classification task, specifically focused on predicting the probability of the presence of pathology. The model takes input from different modalities, such as images and tabular data, and provides a classification prediction. In addition, the repository provides functionality for multimodal input importance analysis providing interpretability to model outputs.
 
