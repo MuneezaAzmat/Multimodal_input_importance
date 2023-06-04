@@ -52,8 +52,8 @@ This repository is able to train and predict pathology for the following binary 
 
 The tabular data consists of the following features:
 
-- gender
 - age
+- gender
 - insurance
 - marital_status
 - ethnicity
