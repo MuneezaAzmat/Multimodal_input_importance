@@ -1,6 +1,6 @@
 # Quantifying the Relative Importance of Multimodal Inputs in a Hybrid Fusion Multimodal Neural Network for Pathology Classification
 
-This repository contains code for a hybrid fusion multimodal neural network trained for a classification task, specifically focused on predicting the probability of the presence of pathology. The model is trained on multimodal medical data from MIMIC-IV and MIMIC-CXR. In addition, the repository provides functionality for multimodal input importance analysis providing interpretability to model outputs.
+This repository contains code for a hybrid fusion multimodal neural network trained for a classification task, specifically focused on predicting the probability of the presence of pathology. The model is trained on multimodal medical data from [MIMIC-IV](https://physionet.org/content/mimiciv/2.2/) and [MIMIC-CXR](https://physionet.org/content/mimic-cxr-jpg/2.0.0/). In addition, the repository provides functionality for multimodal input importance analysis providing interpretability to model outputs.
 
 ## Model Architecture
 
