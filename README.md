@@ -1,6 +1,6 @@
 # Hybrid Fusion Multimodal Neural Network for Pathology Classification with Feature Importance and Interpretability
 
-This repository contains code for a hybrid fusion multimodal neural network trained for a classification task, specifically focused on predicting the probability of the presence of pathology based on a HIAM Study. The model takes input from different modalities, such as images and tabular data, and provides a classification prediction. In addition, the repository provides functionality for multimodal input importance analysis, enhancing the model's interpretability.
+This repository contains code for a hybrid fusion multimodal neural network trained for a classification task, specifically focused on predicting the probability of the presence of pathology. The model takes input from different modalities, such as images and tabular data, and provides a classification prediction. In addition, the repository provides functionality for multimodal input importance analysis providing interpretability to model outputs.
 
 ## Model Architecture
 
@@ -38,10 +38,38 @@ To use this repository, follow these steps:
 4. Train the hybrid fusion multimodal neural network by running the appropriate training script.
 5. Once the model is trained, utilize the multimodal input importance analysis methods to understand the importance of different modalities in the model's predictions.
 
+This repository is able to train and predict pathology for the following binary classification problems:
+
+- Atelectasis
+- Cardiomegaly
+- Consolidation
+- Edema
+- Enlarged Cardiomediastinum
+- Fracture
+- Lung Lesion
+- Lung Opacity
+- Pleural Other
+- Pneumonia
+- Pneumothorax
+
+The tabular data consists of the following features:
+
+- gender
+- age
+- insurance
+- marital_status
+- ethnicity
+
+The CSV file should be in the following format:
+
+```
+subject_id,study_id,StudyDateForm,path_to_image,Cardiomegaly,age,F,M,Medicaid,Medicare,Other,DIVORCED,MARRIED,SINGLE,WIDOWED,AMERICAN INDIAN/ALASKA NATIVE,ASIAN,BLACK/AFRICAN AMERICAN,HISPANIC/LATINO,WHITE,OTHER
+```
+
 Please refer to the code documentation and comments for more detailed information on how to use the provided functionalities.
 
 ## Contributors
 
 This repository was created and is maintained by Muneeza Azmat. Contributions and suggestions are welcome.
 
-If you encounter any issues or have questions, please open an issue in the repository or contact azmatmun@msu.edu
+If you encounter any issues or have questions, please open an issue in the repository or contact azmatmun@msu.edu.
