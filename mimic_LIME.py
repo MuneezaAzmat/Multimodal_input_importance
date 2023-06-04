@@ -8,38 +8,6 @@ import numpy as np
 import os
 from mimic_models import*
 
-def get_encoded_neigh(X, n, fn):
-    samples = np.random.multivariate_normal(X,np.eye(fn), n)
-    # For categorical variables
-    permissible_gender = np.eye(2)
-    permissible_insurance = np.eye(3)
-    permissible_marital = np.eye(4)
-    permissible_ethnicity = np.eye(5)
-    # sample for breast density
-    id1 = np.random.randint(0,3,n)
-    samples[:,12:15] = [id1]
-    # sample for indication 
-    id2 = np.random.randint(0,3,n)
-    samples[:,15:18] = permissible_vals[id2]
-    N = samples
-    return(N)
-
-def decode_sampled_neigh(N,fn):
-    N_d = np.zeros((len(N),fn)) 
-    
-    N_d[:,0:12] = N[:,0:12]
-
-    # decode breast density
-    tmp = np.argmax(N[:,12:15],axis=1)
-    N_d[:,12] = tmp-np.mean(tmp)
-    
-    # decode indication 
-    tmp2 = np.argmax(N[:,15:18], axis=1)
-    N_d[:,13] = tmp2 - np.mean(tmp2)
-
-    # {0-10:image} , {10:age} , {11:decoded_density} , {12:decoded_indication}
-    return(N_d)
-
 def dist(N, X):
     sigma = X.shape[0]*1
     d = pairwise_distances(N,X.reshape(1, -1),metric='euclidean').ravel()
@@ -52,16 +20,12 @@ def lime(args, deep_feat, net2, device, n_tab):
     sz = len(deep_feat)
     # W_pop_0 = np.zeros((sz , fn_dec))
     W_pop_0 = np.zeros((sz , fn))
-
     net2.eval()
 
     # Repeat Lime for all inputs 
     for i in range(sz):
         X = deep_feat[i].cpu().numpy()
-        # Generate training data for Ridge
         n = 200
-        # N = get_encoded_neigh(X, n, fn)
-        # N_d = decode_sampled_neigh(N,fn_dec)
         N = np.random.multivariate_normal(X,np.eye(fn), n)
         Nt = torch.from_numpy(N).float().to(device)
         Y = net2.forward(Nt[: , 0 : args.enc_dim],
