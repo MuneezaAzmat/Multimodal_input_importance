@@ -126,3 +126,15 @@ if __name__ == "__main__":
     ax.set_ylim([0,1])
     ax.legend()
     ax.grid(alpha=0.2)
+    
+    # Create the output directory if it doesn't exist
+    out_dir = os.path.join(args.out_dir, args.model_name, "F_imp_results")
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+
+    # Save the plots and importance arrays
+    imp_in_plot.savefig(os.path.join(out_dir, f"{args.dataset}_GRAD_in_imp.pdf"), bbox_inches="tight")
+    imp_m_plot.savefig(os.path.join(out_dir, f"{args.dataset}_GRAD_m_imp.pdf"), bbox_inches="tight")
+    np.save(os.path.join(out_dir, f"{args.dataset}_GRAD_imp_raw"), imp)
+    np.save(os.path.join(out_dir, f"{args.dataset}_GRAD_imp_modality_norm"), imp_m)
+    np.save(os.path.join(out_dir, f"{args.dataset}_GRAD_imp_input_norm"), imp_in)
