@@ -99,27 +99,6 @@ rank_grad = np.argsort(np.argsort(-imp_grad))
 rank_lime = np.argsort(np.argsort(-imp_lime))
 rank_perm = np.argsort(np.argsort(-imp_perm))
 
-# print(rank_grad, rank_lime, rank_perm)
-
-# table_1 = pd.DataFrame(columns = ["", "SHAP",  "LIME", "GRAD", "PERM"])
-# p = 0.99
-
-# table_1.loc[0]= ["SHAP" , rbo.RankingSimilarity(rank_shap,rank_shap).rbo() , rbo.RankingSimilarity(rank_shap,rank_lime).rbo(), 
-#                  rbo.RankingSimilarity(rank_shap,rank_grad).rbo(), rbo.RankingSimilarity(rank_shap,rank_perm).rbo()]
-
-# table_1.loc[1]= ["LIME" , rbo.RankingSimilarity(rank_lime,rank_shap).rbo() , rbo.RankingSimilarity(rank_lime,rank_lime).rbo(),
-#                   rbo.RankingSimilarity(rank_lime,rank_grad).rbo(),  rbo.RankingSimilarity(rank_lime,rank_perm).rbo()]
-
-# table_1.loc[2]= ["GRAD" , rbo.RankingSimilarity(rank_grad,rank_shap).rbo() , rbo.RankingSimilarity(rank_grad,rank_lime).rbo(), 
-#                  rbo.RankingSimilarity(rank_grad,rank_grad).rbo(), rbo.RankingSimilarity(rank_grad,rank_perm).rbo()]
-
-# table_1.loc[3]= ["PERM" , rbo.RankingSimilarity(rank_perm,rank_shap).rbo() , rbo.RankingSimilarity(rank_perm,rank_lime).rbo(), 
-#                  rbo.RankingSimilarity(rank_perm,rank_grad).rbo(), rbo.RankingSimilarity(rank_perm,rank_perm).rbo()]
-
-# print("---------------------------------------------------")
-# print(table_1.round(2).to_latex(index=False))
-
-
 def diff(x,y):
     d = np.dot(x, y)/(np.linalg.norm(x)*np.linalg.norm(y))
     # d = np.sum(np.abs(x-y))
