@@ -14,6 +14,7 @@ labels = np.zeros((n_samples))
 exp_id = 6
 
 for i in  range(n_samples):
+    # Synthetic decision function
     F1 = np.sum(features[i,0:40])
     if F1  < -0.2:
         labels[i] = 0
@@ -22,6 +23,7 @@ for i in  range(n_samples):
 print( 'Prevalence is', f"{sum(labels)/n_samples:0.2f}")
 
 grad = np.zeros((n_samples,40))
+# ground truth importance using gradient of the true decision function
 for i in range(len(labels)):
     grad[i,0:40] = 1 
     
