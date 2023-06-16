@@ -58,6 +58,7 @@ imp_lime = np.load(load_dir+f'{dataset}_LIME_imp_input_norm.npy')
 imp_shap = np.load(load_dir+f'{dataset}_GSHAP_imp_input_norm.npy')
 
 imp_agg = np.mean((imp_grad, imp_lime, imp_perm, imp_shap),0)
+imp_agg = imp_agg/sum(imp_agg)
 
 np.save(os.path.join(load_dir, f"{dataset}_AGG_imp_input_norm"), imp_agg)
 
